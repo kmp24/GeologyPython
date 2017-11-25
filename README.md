@@ -1,6 +1,5 @@
 # GeologyPython
 A project to explore folium using NH USGS bedrock data.
-# (GitHub-Flavored) Markdown Editor
 
 
 ``` python
