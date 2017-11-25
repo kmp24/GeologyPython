@@ -1,32 +1,42 @@
 # GeologyPython
 A project to explore folium using NH USGS bedrock data.
+# (GitHub-Flavored) Markdown Editor
 
+
+``` python
 import numpy as np
 import geopandas as gpd
 import pandas as pd
 import folium
 from matplotlib.colors import to_hex
 import seaborn as sns
+```
 
+```python
 geology = gpd.read_file(r'C:\Users\Kaitlyn\Desktop\GIS\bedrock_geology\nhgeol_poly_dd.shp')
-
-# take a selection of the columns to simplify the dataset
+```
+### Take a selection of the columns to simplify the dataset
+```python
 geology = geology.loc[:, ['geometry', 'ROCKTYPE1', 'ROCKTYPE2', 'UNIT_LINK']]
-
-# use the USGS litho symbology text file for color styling
+```
+### Use the USGS litho symbology text file for color styling
+```python
 colors = pd.read_csv(r'C:\Users\Kaitlyn\Desktop\GeoPython\GeologyPython\lithrgb.txt', delimiter='\t')
 colors.index = colors.text.str.lower()
 colors.replace('-', '')
 colors.head()
-
-# use matplotlib's coloring and lambda function in python to join rgb values
+```
+### Use matplotlib's coloring and lambda function in python to join rgb values
+```python
 colors['rgba'] = colors.apply(lambda x:'rgba(%s,%s,%s,%s)' % (x['r'],x['g'],x['b'], 255), axis=1)
 colors['hex'] = colors.apply(lambda x: to_hex(np.asarray([x['r'],x['g'],x['b'],255]) / 255.0), axis=1)
-
-# group the polygons by rock type
+```
+### Group the polygons by rock type
+```python
 rock_group = geology.groupby('ROCKTYPE1')
-
-# create folium maps for each rock type
+```
+### Create folium maps for each rock type
+```python
 map_center = [43.9,-72.6]
 m = folium.Map(location=map_center, zoom_start=8, height='100%', control_scale=True)
 fg = folium.FeatureGroup(name='Geology of New Hampshire').add_to(m)
@@ -43,19 +53,22 @@ for rock in rock_group.groups.keys():
     fg.add_child(g)
 
 folium.LayerControl().add_to(m)
+```
 
-# calculate area
+### Calculate area
+```python
 geology['AREA_sqkm'] = geology.to_crs({'init': 'epsg:32616'}).area / 10**6
-
-# get sum of all rock types
+```
+### Get sum of all rock types
+```python
 rock_group_sum = rock_group.sum()
 rock_group_sum['ROCK'] = rock_group_sum.index
-
 rock_group_sum.head()
+```
 
 
-
-# create a folium map using USGS rock type descriptions
+### Create a folium map using USGS rock type descriptions
+```python
 import requests
 
 response = requests.request('GET', 'https://mrdata.usgs.gov/geology/state/json/{}'.format('MIYc;0')).json()
@@ -76,6 +89,9 @@ for unit in geology.groupby('UNIT_LINK').groups.keys():
 
 folium.LayerControl().add_to(m)
 m
+```
 
-
+### Save the file
+```python
 map.create_map(path='C:/Users/Kaitlyn/Desktop/GeoPython/GeologyPython/geology_nh_map.html')
+```
