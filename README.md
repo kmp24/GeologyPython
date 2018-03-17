@@ -63,6 +63,14 @@ geology['AREA_sqkm'] = geology.to_crs({'init': 'epsg:32616'}).area / 10**6
 rock_group_sum = rock_group.sum()
 rock_group_sum['ROCK'] = rock_group_sum.index
 rock_group_sum.head()
+print(rock_group_sum.head())
+                     AREA_sqkm                ROCK
+ROCKTYPE1                                         
+amphibolite          18.507552         amphibolite
+basalt               24.006376              basalt
+bimodal suite       723.229612       bimodal suite
+calc-silicate rock   47.731576  calc-silicate rock
+conglomerate         35.352720        conglomerate
 ```
 
 
