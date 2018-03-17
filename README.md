@@ -72,6 +72,10 @@ bimodal suite       723.229612       bimodal suite
 calc-silicate rock   47.731576  calc-silicate rock
 conglomerate         35.352720        conglomerate
 ```
+### The resulting figure is created:
+```
+![alt text]https://rawgit.com/kmp24/GeologyPython/master/Rock_types.png "Rock Type Area")
+```
 
 
 ### Create a folium map using USGS rock type descriptions
