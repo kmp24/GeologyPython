@@ -73,9 +73,9 @@ calc-silicate rock   47.731576  calc-silicate rock
 conglomerate         35.352720        conglomerate
 ```
 ### The resulting figure is created:
-```
+
     ![Mostly Granite](https://github.com/kmp24/GeologyPython/blob/master/Rock_types.png?raw=true)  
-```
+
 
 
 ### Create a folium map using USGS rock type descriptions
