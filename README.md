@@ -74,7 +74,7 @@ conglomerate         35.352720        conglomerate
 ```
 ### The resulting figure is created:
 ```
-![Rock Types](/Rock_types.png)
+![Mostly Granite](https://github.com/kmp24/GeologyPython/blob/master/Rock_types.png?raw=true)  
 ```
 
 
