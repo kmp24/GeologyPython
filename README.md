@@ -74,7 +74,7 @@ conglomerate         35.352720        conglomerate
 ```
 ### The resulting figure is created:
 ```
-![alt text](https://raw.github.com/kmp24/GeologyPython/master/Rock_types.png "Rock Type Area")
+[[https://github.com/kmp24/geologypython/blob/master/Rock_types.png]]
 ```
 
 
