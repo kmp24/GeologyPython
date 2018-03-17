@@ -84,4 +84,8 @@ for unit in geology.groupby('UNIT_LINK').groups.keys():
 folium.LayerControl().add_to(m)
 m
 
+# Save as an html file, and then as a shapefile
+
+m.save('C:/Users/Kaitlyn/Desktop/GeoPython/GeologyPython/geology_nh_map.html')
+
 geology.to_file('C:/Users/Kaitlyn/Desktop/GeoPython/GeologyPython/geology.shp')
