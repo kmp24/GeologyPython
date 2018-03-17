@@ -92,5 +92,5 @@ m
 
 ### Save the file
 ```python
-map.create_map(path='C:/Users/Kaitlyn/Desktop/GeoPython/GeologyPython/geology_nh_map.html')
+m.save('C:/Users/Kaitlyn/Desktop/GeoPython/GeologyPython/geology_nh_map.html')
 ```
